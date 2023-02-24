@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "tweets/edit", type: :view do
   let(:tweet) {
     Tweet.create!(
-      user: nil,
+      user: User.new(name: 'John', id: 1),
       message: "MyString"
     )
   }
