@@ -9,27 +9,25 @@ RSpec.describe Tweet, type: :model do
   end
 
   it 'is valid with a message' do
-    tweet = Tweet.new(message: 'Hello, world!', user_id: 1)
-    expect(tweet).to be_valid
+    expect(@tweet).to be_valid
   end
   it 'is invalid without a message' do
-    tweet = Tweet.new(message: nil)
-    expect(tweet).to_not be_valid
+    @tweet.message = nil
+    expect(@tweet).to_not be_valid
   end
   it 'is invalid with message longer than 240 characters' do
     @tweet.message = 'a' * 241
     expect(@tweet).to_not be_valid
   end
   it 'is valid with message less than or equal to 240 characters' do
-    tweet = Tweet.new(message: 'a' * 240, user_id: 1)
-    expect(tweet).to be_valid
+    @tweet.message = 'a' * 240
+    expect(@tweet).to be_valid
   end
   it 'is valid with a user' do
-    tweet = Tweet.new(user_id: 1)
-    expect(tweet).to be_valid
+    expect(@tweet).to be_valid
   end
   it 'is invalid without a user' do
-    tweet = Tweet.new(user_id: nil)
-    expect(tweet).to_not be_valid
+    @tweet.user_id = nil
+    expect(@tweet).to_not be_valid
   end
 end
