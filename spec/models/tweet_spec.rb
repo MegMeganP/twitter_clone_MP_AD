@@ -4,8 +4,8 @@ RSpec.describe Tweet, type: :model do
   #is there a way to greate a user for all of the tests that need it in one spot?
   before do
     puts 'hello world'
-    user = User.create(name: 'John', id: 1)
-    @tweet = Tweet.new(message: 'Hello, world!', user_id: 1)
+    user = User.create(name: 'John')
+    @tweet = Tweet.new(message: 'Hello, world!', user_id: user.id)
   end
 
   it 'is valid with a message' do
