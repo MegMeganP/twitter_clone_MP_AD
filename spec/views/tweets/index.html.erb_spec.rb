@@ -20,4 +20,9 @@ RSpec.describe "tweets/index", type: :view do
     assert_select cell_selector, text: Regexp.new("User"), count: 2  # check if this is correct, is \d regex for int?
     assert_select cell_selector, text: Regexp.new("Message".to_s), count: 2
   end
+  it "renders the user's name" do
+    render
+    expect(rendered).to match(/John/)
+    expect(rendered).to match(/Mary/)
+  end
 end
